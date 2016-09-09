@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DemoStreamReceiverApplication {
+public class DemoStreamSenderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoStreamReceiverApplication.class, args);
+		SpringApplication.run(DemoStreamSenderApplication.class, args);
 	}
 
 
@@ -23,8 +23,8 @@ public class DemoStreamReceiverApplication {
 	@Bean
     CommandLineRunner sendMessage() {
         return args -> {
-            for (int i = 0; i < 100; i++) {
-                messagePublisherService.sendMessage(new TaskMessage("Hello: " + i));
+            for (int i = 0; i < 1000; i++) {
+                messagePublisherService.sendMessage(new TaskMessage(String.valueOf(i)));
                 Thread.sleep(1000L);
             }
         };

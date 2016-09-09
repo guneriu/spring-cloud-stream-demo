@@ -1,5 +1,8 @@
 package com.guneriu.component;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.*;
 
 /**
@@ -13,5 +16,9 @@ import lombok.*;
 public class TaskMessage {
 
     private String value;
+
+    public static void main(String[] args) throws JsonProcessingException {
+        System.out.println(new ObjectMapper().writeValueAsString(new TaskMessage("ugur")));
+    }
 
 }

@@ -1,6 +1,6 @@
 package com.guneriu.publisher;
 
-import com.guneriu.component.CustomerStatusEvent;
+import com.guneriu.component.CustomerEvent;
 import com.guneriu.component.TaskMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-import javax.annotation.Resource;
-
 import lombok.extern.slf4j.Slf4j;
 
-@EnableBinding(CustomerStatusEvent.class)
+@EnableBinding(CustomerEvent.class)
 @Service
 @Slf4j
 public class MessagePublisherService {
 
-    @Autowired
-    @Qualifier(value = "customerStatusMessageChannel")
+    @Autowired @Qualifier(value = CustomerEvent.STATUS_CHANGE)
     private MessageChannel output;
 
     public void sendMessage(TaskMessage body) {
