@@ -3,6 +3,8 @@ package com.guneriu.component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.Serializable;
+
 import lombok.*;
 
 /**
@@ -13,8 +15,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class TaskMessage {
+public class TaskMessage implements Serializable {
 
+    private static final long serialVersionUID = -4432340284987970764L;
     private String value;
 
     public static void main(String[] args) throws JsonProcessingException {

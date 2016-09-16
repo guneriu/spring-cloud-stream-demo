@@ -1,5 +1,7 @@
 package com.guneriu.component;
 
+import java.io.Serializable;
+
 import lombok.*;
 
 /**
@@ -10,7 +12,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class TaskMessage {
+public class TaskMessage implements Serializable {
+
+    private static final long serialVersionUID = -4432340284987970764L;
 
     private String value;
 
